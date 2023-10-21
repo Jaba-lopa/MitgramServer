@@ -1,3 +1,4 @@
+import { Session } from "express-session";
 export class SessionBodyDto {
     user_id: string;
     email: string;
@@ -6,3 +7,6 @@ export class SessionBodyDto {
         this.email = email;
     }
 }
+export interface SessionModel extends Session {
+    user?: SessionBodyDto;
+};

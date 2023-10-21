@@ -1,3 +1,4 @@
+import { Message } from "./types/common/message.type";
 import { RoomMember, RoomType } from "./types/room.types";
 
 export class RoomDB {
@@ -5,4 +6,5 @@ export class RoomDB {
     room_name: string;
     room_members: RoomMember[];
     room_type: RoomType;
+    room_messages: Message[];
 }

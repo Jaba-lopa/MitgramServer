@@ -6,6 +6,7 @@ import { DBModule } from "src/db/db.module";
 @Module({
     imports: [DBModule],
     providers: [AuthService],
-    controllers: [AuthController]
+    controllers: [AuthController],
+    exports: [AuthService]
 })
 export class AuthModule {}
