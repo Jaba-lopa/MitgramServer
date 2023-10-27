@@ -54,7 +54,6 @@ export class AuthController {
         @Session() session: SessionModel
     ) {
         session.destroy(() => {});
-        
         return res.json({
             message: "Вы успешно вышли из аккаунта",
             status: 200

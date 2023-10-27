@@ -7,5 +7,5 @@ import { DBModule } from "src/db/db.module";
 @Module({
     providers: [SocketGateway, ServerUseService, UserUseService],
     imports: [DBModule]
-})
-export class SocketModule {}
+}) 
+export class SocketModule {} 

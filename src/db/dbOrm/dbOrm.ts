@@ -1,4 +1,17 @@
 import { Client } from 'pg';
+
+// const ConumlTypes = {
+//     "string": "TEXT",
+//     "number": "INTEGER",
+//     "json": "JSON",
+//     "jsonb": "JSONB",
+// }
+// export class DBUtils {
+//     returnColumnType () {
+
+//     }
+// }
+
 class DBActions {
     private db: Client;
     private table: string;
@@ -46,7 +59,7 @@ class DBActions {
         return rows;
     }
 
-    async addRow<T>(values: any[]) {
+    async addRow<T>(values: T[]) {
         const fieldsString = values.map((value, index) => `$${index+1}`).join(',');
         const row = await (await this.db.query(`INSERT INTO ${this.table} VALUES(${fieldsString}) RETURNING *`, values)).rows[0];
         return row;

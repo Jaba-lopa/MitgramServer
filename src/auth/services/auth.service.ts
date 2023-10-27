@@ -47,7 +47,7 @@ export class AuthService {
     async isAuth(redisKey: RedisKey, sessionBodyDto: SessionBodyDto) {
         // Верифицировать данные по ключу в redis
         const userDataInRedis = JSON.parse(await client.get(redisKey));
-        const userInRedis: SessionBodyDto = JSON.parse(userDataInRedis.user);
+        const userInRedis: SessionBodyDto = userDataInRedis.user;
         if (sessionBodyDto.email != userInRedis.email || sessionBodyDto.user_id != userInRedis.user_id) return { isAuth: false };
         // Забанен ли пользователь
         const candidate: BanListEntity = await this.dbOrm.in('banlist').getRow({ user_id: sessionBodyDto.user_id });
